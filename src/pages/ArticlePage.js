@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 
 import ArticlesList   from '../components/ArticlesList';
-import CommentsList from '../components/CommentsList';
+import CommentsList   from '../components/CommentsList';
+import UpvotesSection from "../components/UpvotesSection";
 import articleContent from './ArticleContent';
 import NotFoundPage   from './NotFoundPage';
 
@@ -25,7 +26,7 @@ function ArticlePage() {
   return (
     <>
       <h1>{article.title}</h1>
-      <p>This post has been upvoted {articleInfo.upvotes} times</p>
+      <UpvotesSection articleName={name} upvotes={articleInfo.upvotes} setArticleInfo={setArticleInfo}/>
       {article.content.map((paragraph, key) => (
         <p key={key}>{paragraph}</p>
       ))}
